@@ -30,3 +30,20 @@ class Language(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Vacancy(models.Model):
+    timestamp = models.DateField(auto_now_add=True)
+    title = models.CharField(max_length=250)
+    description = models.TextField()
+    company = models.CharField(max_length=30)
+    url = models.URLField(unique=True)
+    city = models.ForeignKey("City", on_delete=models.CASCADE)
+    language = models.ForeignKey("Language", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Вакансия'
+        verbose_name_plural = 'Вакансии'
+
+    def __str__(self):
+        return self.title

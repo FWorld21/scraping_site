@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+    {% for i in vacancies %}
+        <div class="card my-3">
+            <div class="card-header">
+                <a href="{{i.url}}">{{i.title}}</a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">{{i.description}}</p>
+                <p>{{i.city.name}} | {{i.language}} | <small>{{i.timestamp}}</small></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
