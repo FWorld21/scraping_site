@@ -9,10 +9,21 @@
                 <a href="{{i.url}}">{{i.title}}</a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">{{i.description}}</p>
                 <p>{{i.city.name}} | {{i.language}} | <small>{{i.timestamp}}</small></p>
             </div>
         </div>
+    {% empty %}
+        <h3>К сожалению по вашему запросу ничего не найдено</h3>
     {% endfor %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form method="GET" action="">
+                <div class="form-group">
+                    {{form.as_p}}
+                    <input type="submit" value="Поиск">
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
