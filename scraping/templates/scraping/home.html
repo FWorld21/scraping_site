@@ -3,22 +3,19 @@
     Home
 {% endblock %}
 {% block content %}
-    {% for i in vacancies %}
-        <div class="card my-3">
-            <div class="card-header">
-                <a href="{{i.url}}">{{i.title}}</a>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{i.description}}</p>
-                <p>{{i.city.name}} | {{i.language}} | <small>{{i.timestamp}}</small></p>
-            </div>
-        </div>
-    {% empty %}
-        <h3>К сожалению по вашему запросу ничего не найдено</h3>
-    {% endfor %}
     <div class="row">
-        <div class="col-md-6 mx-auto">
-            <form method="GET" action="">
+        <div class="col text-center">
+            <h2>
+                Сервис по сбору и рассылке вакансий
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <h4>
+                Для просмотра доступных вакансий, заполните форму, по одному из полей.
+            </h4>
+            <form method="GET" action="{% url 'list' %}">
                 <div class="form-group">
                     {{form.as_p}}
                     <input type="submit" value="Поиск">

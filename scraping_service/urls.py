@@ -18,6 +18,7 @@ from django.urls import path
 from scraping import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name='home'),
+    path('list', views.list_view, name="list"),
     path('super-secret-admin-path/', admin.site.urls),
 ]
